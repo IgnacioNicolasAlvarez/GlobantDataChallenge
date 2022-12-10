@@ -1,14 +1,14 @@
 {
-    "namespace": "deparment.avro",
+    "namespace": "job.avro",
     "type": "record",
-    "name": "Department",
+    "name": "Job",
     "fields": [
         {
-            "name": "department_id",
+            "name": "job_id",
             "type": "int"
         },
         {
-            "name": "deparment",
+            "name": "job",
             "type": "string"
         }
     ]

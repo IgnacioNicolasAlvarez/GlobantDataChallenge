@@ -1,4 +1,16 @@
+[General.snapshot]
+avro_data_file = 'data/curated/'
+avro_schema_file = 'avro_schemas/'
+
 [Deparment.snapshot]
 
-avro_data_file='data/curated/'
-avro_schema_file='avro_schemas/department.avsc'
+avro_file_name = 'Deparment'
+
+[Job.snapshot]
+
+avro_file_name = 'Job'
+
+
+[Hired_Employee.snapshot]
+
+avro_file_name = 'Hired_Employee'
