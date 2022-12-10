@@ -1,10 +1,11 @@
 from fastapi import APIRouter, Depends
 from sqlmodel import Session, select
+
+from config import settings
+from src.client.storage import StorageClient
 from src.model.model import DepartmentIn
 from src.model.sqlmodel import Department, get_session
-from src.client.storage import StorageClient
 from src.model.storage_stategies.local_strategy import LocalStrategy
-from config import settings
 
 router = APIRouter()
 
@@ -28,8 +29,9 @@ async def create_snapshot(*, session: Session = Depends(get_session)):
 
     storage_client = StorageClient(
         strategy=LocalStrategy(
-            avro_data_path=settings["Deparment"]["snapshot"]["avro_data_file"],
-            avro_schema_file=settings["Deparment"]["snapshot"]["avro_schema_file"],
+            avro_data_path=settings["General"]["snapshot"]["avro_data_file"],
+            avro_schema_file=settings["General"]["snapshot"]["avro_schema_file"],
+            file_name=settings["Deparment"]["snapshot"]["avro_file_name"],
         )
     )
 

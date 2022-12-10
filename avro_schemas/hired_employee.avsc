@@ -1,0 +1,33 @@
+{
+    "namespace": "hired_employee.avro",
+    "type": "record",
+    "name": "Hired_Employee",
+    "fields": [
+        {
+            "name": "hired_employee_id",
+            "type": "int"
+        },
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "datetime",
+            "type": [
+                "null",
+                {
+                    "type": "int",
+                    "logicalType": "date"
+                }
+            ]
+        },
+        {
+            "name": "department_id",
+            "type": "int"
+        },
+        {
+            "name": "job_id",
+            "type": "int"
+        }
+    ]
+}

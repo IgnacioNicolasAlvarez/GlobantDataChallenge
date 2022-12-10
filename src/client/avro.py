@@ -4,8 +4,8 @@ from avro.io import DatumWriter
 
 
 class AvroWriter:
-    def __init__(self, avro_schema_file, avro_data_path):
-        self.avro_data_file = avro_data_path + "departments.avro"
+    def __init__(self, avro_schema_file, path, file_name):
+        self.avro_data_file = path + file_name + ".avro"
         self.schema = parse(open(avro_schema_file, "rb").read())
 
     def write(self, data: list):
