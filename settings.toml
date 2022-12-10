@@ -1,3 +1,4 @@
-[test]
+[Deparment.snapshot]
 
-key="value"
+avro_data_file='data/curated/'
+avro_schema_file='avro_schemas/department.avsc'
