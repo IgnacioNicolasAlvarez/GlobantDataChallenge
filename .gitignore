@@ -5,3 +5,4 @@ __pycache__
 # Ignore dynaconf secret files
 .secrets.*
 data/curated/*
+ChallengeGlobant.log
