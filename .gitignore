@@ -4,3 +4,4 @@ postgres-data
 __pycache__
 # Ignore dynaconf secret files
 .secrets.*
+data/curated/*

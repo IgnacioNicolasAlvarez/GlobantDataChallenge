@@ -30,7 +30,8 @@ async def create_snapshot(*, session: Session = Depends(get_session)):
     storage_client = StorageClient(
         strategy=LocalStrategy(
             avro_data_path=settings["General"]["snapshot"]["avro_data_file"],
-            avro_schema_file=settings["General"]["snapshot"]["avro_schema_file"],
+            avro_schema_path=settings["General"]["snapshot"]["avro_schema_path"],
+            avro_schema_file=settings["Hired_Employee"]["snapshot"]["avro_schema_file"],
             file_name=settings["Hired_Employee"]["snapshot"]["avro_file_name"],
         )
     )
