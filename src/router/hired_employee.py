@@ -23,7 +23,7 @@ async def set_department(
     return hired_employees
 
 
-@router.get("/hired_employees/snapshot", tags=["department"])
+@router.get("/hired_employees/snapshot", tags=["hired_employee"])
 async def create_snapshot(*, session: Session = Depends(get_session)):
     hired_employees = session.exec(select(Hired_Employee)).all()
 

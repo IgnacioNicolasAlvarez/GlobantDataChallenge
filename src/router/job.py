@@ -21,7 +21,7 @@ async def set_job(*, session: Session = Depends(get_session), jobs: JobsIn):
     return jobs
 
 
-@router.get("/jobs/snapshot", tags=["department"])
+@router.get("/jobs/snapshot", tags=["job"])
 async def create_snapshot(*, session: Session = Depends(get_session)):
     jobs = session.exec(select(Job)).all()
 
