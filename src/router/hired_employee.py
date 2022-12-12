@@ -11,7 +11,7 @@ router = APIRouter()
 
 
 @router.post("/hired_employees/", tags=["hired_employee"])
-async def set_department(
+async def set_hired_employee(
     *, session: Session = Depends(get_session), hired_employees: Hired_EmployeeIn
 ):
 
