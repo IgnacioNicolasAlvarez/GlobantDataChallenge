@@ -6,7 +6,7 @@ import time
 from fastapi import FastAPI, Request
 
 from src.model.sqlmodel import create_db_and_tables
-from src.router import department, hired_employee, job
+from src.router import department, hired_employee, job, queries
 
 logging.config.fileConfig("logging.conf", disable_existing_loggers=False)
 
@@ -35,6 +35,7 @@ async def log_requests(request: Request, call_next):
 app.include_router(department.router)
 app.include_router(hired_employee.router)
 app.include_router(job.router)
+app.include_router(queries.router)
 
 
 @app.on_event("startup")

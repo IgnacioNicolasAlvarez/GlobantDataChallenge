@@ -16,3 +16,12 @@ avro_schema_file = 'job.avsc'
 
 avro_file_name = 'Hired_Employee'
 avro_schema_file = 'hired_employee.avsc'
+
+[SQL.count_by_job_deparment]
+
+template_file = "count_by_job_deparment.sql"
+template_path = 'src/template/sql/'
+
+[SQL.count_by_job_deparment.parameters]
+
+select_year = 2021
