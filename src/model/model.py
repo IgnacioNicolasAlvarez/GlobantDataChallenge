@@ -37,3 +37,9 @@ class Hired_Employee(BaseModel):
 class Hired_EmployeeIn(BaseModel):
 
     employees: conlist(Hired_Employee, min_items=1, max_items=1000)
+
+class Query_output_Department_Job_Count(BaseModel):
+    department : str
+    job : str
+    employee_count : int
+    hire_quarter : str
