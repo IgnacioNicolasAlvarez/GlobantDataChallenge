@@ -3,10 +3,8 @@ from sqlmodel import Session
 
 from config import settings
 from src.client.db import SQLTemplateExecutor
-
 from src.model.model import Query_output_Department_Job_Count
 from src.model.sqlmodel import get_session
-
 
 router = APIRouter()
 

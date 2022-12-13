@@ -1,4 +1,5 @@
 version: '3.7'
+
 services:
   rest_service:
     build: .
@@ -9,6 +10,27 @@ services:
     command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn main:app --host 0.0.0.0'
     depends_on:
       - db
+  metabase-app:
+    image: metabase/metabase
+    restart: always
+    ports:
+      - 3001:3000
+    volumes:
+      # declare your mount volume /host/dir:/container/dir
+      - /metabase-data:/metabase-data
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: postgres
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: postgres
+      MB_DB_HOST: db-metabase
+    depends_on:
+      - db
+      - db-metabase
+    links:
+      - db
+      - db-metabase
   db:
     image: postgres:10.5
     restart: always
@@ -24,5 +46,22 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
+  db-metabase:
+    image: postgres:10.5
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5439:5432'
+    volumes:
+      - metabase-data:/var/lib/postgresql/data/
 volumes:
   postgres_data:
+  metabase-data:
+
+

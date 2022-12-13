@@ -1,5 +1,6 @@
 .venv
 postgres-data
+metabase-data
 .vscode
 __pycache__
 # Ignore dynaconf secret files
